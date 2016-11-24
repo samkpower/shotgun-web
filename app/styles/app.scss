@@ -5,3 +5,17 @@ $font-primary: 'Source Sans Pro', 'Calibri', 'Helvetica', 'Arial', sans-serif;
 body {
   font-family: $font-primary;
 }
+
+.home {
+  display: flex;
+}
+
+.home__month {
+  width: 66%;
+  height: 100vh;
+}
+
+.home__day {
+  width: 33%;
+  height: 100vh;
+}

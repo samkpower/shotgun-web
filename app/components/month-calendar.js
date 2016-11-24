@@ -1,21 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  // passed variables
+  activeDate: null,
+  events: null,
+
+  // private methods
+  _renderCalendarView() {
+    this.$('.js-calendar').fullCalendar({
+      height: 'auto',
+      events: this.get('events'),
+      dayClick: (date) => {
+        this.get('setActiveDate')(date.valueOf());
+      }
+    });
+  },
+
+  // event hooks
   didRender() {
     this._super(...arguments);
-    this.$('.js-calendar').fullCalendar({
-      events: [
-        {
-          title: 'Bungeejumping',
-          start: '2016-11-22T12:30:00',
-          end: '2016-11-22T14:30:00'
-        },
-        {
-          title: 'Get a tattoo',
-          start: '2016-11-29T09:30:00',
-          end: '2016-11-29T14:30:00'
-        }
-      ]
-    });
+    this._renderCalendarView();
   }
 });
