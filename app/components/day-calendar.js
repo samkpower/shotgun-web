@@ -2,10 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   // passed variables
-  minTime: '08:00:00',
-  maxTime: '18:00:00',
   activeDate: null,
   events: null,
+  minTime: '08:00:00',
+  maxTime: '18:00:00',
+  newEvent: null,
+
+  // computed properties
   agenda: Ember.computed(function() {
     return this.$('.js-calendar');
   }),
@@ -31,6 +34,11 @@ export default Ember.Component.extend({
       defaultDate: activeDate,
       minTime: this.get('minTime'),
       maxTime: this.get('maxTime'),
+      selectable: true,
+      select: (start, end) => {
+        this.set('newEvent.start', new Date(start));
+        this.set('newEvent.end', new Date(end));
+      }
     });
   },
 

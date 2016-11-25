@@ -1,0 +1,15 @@
+{{#if showModal}}
+  {{#modal-dialog close="toggleModal"
+                  targetAttachment="center"
+                  translucentOverlay=true}}
+    <form>
+      <p>Confirm event:</p>
+      <label>Start{{input value=newEvent.start}}</label><br>
+      <label>End{{input value=newEvent.end}}</label><br>
+      <label>Title {{input value=newEvent.title}}</label><br>
+    </form>
+
+    <button {{action 'saveEvent'}}>Create Event</button>
+    <button {{action 'closeModal'}}>Cancel</button>
+  {{/modal-dialog}}
+{{/if}}
