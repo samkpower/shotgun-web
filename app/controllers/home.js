@@ -3,7 +3,11 @@ import moment from 'moment';
 
 export default Ember.Controller.extend({
   activeDate: moment(),
-  events: Ember.computed.alias('model.events'),
+  events: Ember.computed('model.events.[]', function() {
+    return this.get('model.events').map((event) => {
+      return event.get('fullCalendarFormat');
+    });
+  }),
 
   actions: {
     setActiveDate(newActiveDate) {

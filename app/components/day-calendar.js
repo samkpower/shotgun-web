@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   // passed variables
+  minTime: '08:00:00',
+  maxTime: '18:00:00',
   activeDate: null,
   events: null,
   agenda: Ember.computed(function() {
@@ -10,7 +12,6 @@ export default Ember.Component.extend({
 
   // observers
   updateAgendaDay: Ember.observer('activeDate', function() {
-    console.log('date change');
     this._goToDate();
   }),
 
@@ -27,7 +28,9 @@ export default Ember.Component.extend({
       defaultView: 'agendaDay',
       height: 'auto',
       events: events,
-      defaultDate: activeDate
+      defaultDate: activeDate,
+      minTime: this.get('minTime'),
+      maxTime: this.get('maxTime'),
     });
   },
 
