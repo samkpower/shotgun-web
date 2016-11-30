@@ -38,6 +38,7 @@ export default Ember.Component.extend({
       select: (start, end) => {
         this.set('newEvent.start', new Date(start));
         this.set('newEvent.end', new Date(end));
+        this.get('openCreateEventModal')();
       }
     });
   },

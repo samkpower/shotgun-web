@@ -4,12 +4,8 @@
   </div>
 
   <div class='home__day'>
-    {{day-calendar events=events activeDate=activeDate newEvent=newEvent}}
+    {{day-calendar events=events activeDate=activeDate newEvent=newEvent openCreateEventModal=(action "openCreateEventModal")}}
   </div>
 </div>
-
-{{newEvent.title}} - {{newEvent.start}} - {{newEvent.end}}
-
-<button {{action 'openCreateEventModal'}}>Create Event</button>
 
 {{modals/create-event showModal=showCreateEventModal model=newEvent}}

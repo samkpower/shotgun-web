@@ -7,9 +7,10 @@ export default Ember.Component.extend({
 
   actions: {
     saveEvent() {
-      this.get('newEvent').save().then(function() {
+      this.get('newEvent').save().then(() => {
         // should append to events
-      }).catch(function() {
+        this.send('closeModal');
+      }).catch(() => {
         this.send('closeModal');
         // reset newEvent
       });
