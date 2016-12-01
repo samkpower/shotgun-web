@@ -1,33 +1,39 @@
 import Ember from 'ember';
+const { observer, computed, Component } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   // passed variables
   activeDate: null,
   events: null,
   minTime: '08:00:00',
   maxTime: '18:00:00',
-  newEvent: null,
 
   // computed properties
-  agenda: Ember.computed(function() {
-    return this.$('.js-calendar');
+  dayCalendarElem: computed(function() {
+    return this.$();
   }),
 
   // observers
-  updateAgendaDay: Ember.observer('activeDate', function() {
+  updateAgendaDay: observer('activeDate', function() {
     this._goToDate();
+  }),
+
+  eventObserver: observer('events.[]', function() {
+    let dayCalendarElem  = this.get('dayCalendarElem');
+    dayCalendarElem.fullCalendar('removeEvents');
+    dayCalendarElem.fullCalendar('addEventSource', this.get('events'));
   }),
 
   // private methods
   _goToDate() {
-    this.get('agenda').fullCalendar('gotoDate', this.get('activeDate'));
+    this.get('dayCalendarElem').fullCalendar('gotoDate', this.get('activeDate'));
   },
 
   _renderAgendaView() {
     let events = this.get('events');
     let activeDate = this.get('activeDate');
 
-    this.$('.js-calendar').fullCalendar({
+    this.$().fullCalendar({
       defaultView: 'agendaDay',
       height: 'auto',
       events: events,
@@ -36,9 +42,7 @@ export default Ember.Component.extend({
       maxTime: this.get('maxTime'),
       selectable: true,
       select: (start, end) => {
-        this.set('newEvent.start', new Date(start));
-        this.set('newEvent.end', new Date(end));
-        this.get('openCreateEventModal')();
+        this.get('openCreateEventModal')({ start: start, end: end });
       }
     });
   },

@@ -1,13 +1,12 @@
 import Ember from 'ember';
 import moment from 'moment';
+const { computed, Controller } = Ember;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   activeDate: moment(),
   showCreateEventModal: false,
-  newEvent: Ember.computed(function() {
-    return this.store.createRecord('event', { name: 'New Event!' });
-  }),
-  events: Ember.computed('model.events.[]', function() {
+  newEvent: computed(() => { return {}; }),
+  events: computed('model.events.[]', function() {
     return this.get('model.events').map((event) => {
       return event.get('fullCalendarFormat');
     });
@@ -17,7 +16,9 @@ export default Ember.Controller.extend({
     setActiveDate(newActiveDate) {
       this.set('activeDate', newActiveDate);
     },
-    openCreateEventModal() {
+    openCreateEventModal(eventObject) {
+      this.set('newEvent.start', eventObject.start);
+      this.set('newEvent.end', eventObject.end);
       this.toggleProperty('showCreateEventModal');
     }
   }

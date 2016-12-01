@@ -1,18 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
+
   // passed variables
   showModal: null,
-  newEvent: Ember.computed.alias('model'),
+  newEvent: null,
 
   actions: {
     saveEvent() {
-      this.get('newEvent').save().then(() => {
-        // should append to events
+      let newEvent = this.get('store').createRecord('event', {
+        name: this.get('newEvent.name'),
+        start: this.get('newEvent.start'),
+        end: this.get('newEvent.end')
+      });
+
+      newEvent.save().then(() => {
         this.send('closeModal');
       }).catch(() => {
         this.send('closeModal');
-        // reset newEvent
       });
     },
     closeModal() {
