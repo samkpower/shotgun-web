@@ -1,13 +1,26 @@
 import Ember from 'ember';
+const { observer, computed, Component } = Ember;
 
-export default Ember.Component.extend({
+export default Component.extend({
   // passed variables
   activeDate: null,
   events: null,
 
+  // computed properties
+  monthCalendarElem: computed(function() {
+    return this.$();
+  }),
+
+  // observers
+  eventObserver: observer('events.[]', function() {
+    let monthCalendarElem  = this.get('monthCalendarElem');
+    monthCalendarElem.fullCalendar('removeEvents');
+    monthCalendarElem.fullCalendar('addEventSource', this.get('events'));
+  }),
+
   // private methods
   _renderCalendarView() {
-    this.$('.js-calendar').fullCalendar({
+    this.get('monthCalendarElem').fullCalendar({
       height: 'auto',
       events: this.get('events'),
       dayClick: (date) => {

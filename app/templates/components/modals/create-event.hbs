@@ -4,9 +4,9 @@
                   translucentOverlay=true}}
     <form>
       <p>Confirm event:</p>
+      <label>Title {{input value=newEvent.name}}</label><br>
       <label>Start{{input value=newEvent.start}}</label><br>
       <label>End{{input value=newEvent.end}}</label><br>
-      <label>Title {{input value=newEvent.title}}</label><br>
     </form>
 
     <button {{action 'saveEvent'}}>Create Event</button>
