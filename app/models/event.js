@@ -6,7 +6,12 @@ export default DS.Model.extend({
   end: DS.attr('utc'),
   name: DS.attr('string'),
   title: Ember.computed.alias('name'),
-  fullCalendarFormat: Ember.computed('start', 'end', 'name', function() {
-    return { title: this.get('name'), start: this.get('start'), end: this.get('end') };
+  fullCalendarFormat: Ember.computed('start', 'end', 'name', 'id', function() {
+    return {
+      title: this.get('name'),
+      start: this.get('start'),
+      end: this.get('end'),
+      id: this.get('id')
+    };
   })
 });

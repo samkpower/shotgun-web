@@ -1,7 +1,9 @@
 import Ember from 'ember';
-const { observer, computed, Component } = Ember;
+const { observer, computed, Component, inject } = Ember;
 
 export default Component.extend({
+  store: inject.service(),
+
   // passed variables
   activeDate: null,
   events: null,
@@ -18,7 +20,7 @@ export default Component.extend({
     this._goToDate();
   }),
 
-  eventObserver: observer('events.[]', function() {
+  eventObserver: observer('events.[]', 'events.@each.start', 'events.@each.end', 'events.@each.name', function() {
     let dayCalendarElem  = this.get('dayCalendarElem');
     dayCalendarElem.fullCalendar('removeEvents');
     dayCalendarElem.fullCalendar('addEventSource', this.get('events'));
@@ -43,6 +45,13 @@ export default Component.extend({
       selectable: true,
       select: (start, end) => {
         this.get('openCreateEventModal')({ start: start, end: end });
+      },
+      editable: true,
+      eventDrop: (event) => {
+        this.get('updateEvent')(event.id, { start: event.start, end: event.end });
+      },
+      eventResize: (event) => {
+        this.get('updateEvent')(event.id, { start: event.start, end: event.end });
       }
     });
   },
