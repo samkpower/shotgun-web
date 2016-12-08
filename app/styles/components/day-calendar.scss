@@ -1,0 +1,45 @@
+day-calendar {
+  height: 100%;
+
+  .fc-right {
+    display: none;
+  }
+
+  .fc-head-container .fc-widget-header {
+    border: 0 solid transparent;
+  }
+
+  &.fc td {
+    border: 0 solid transparent;
+  }
+
+  .fc-time-grid .fc-event {
+    border-radius: 0;
+    border-width: 0;
+    border: 1px solid transparent;
+  }
+
+  .fc-event {
+    background-color: rgba(75, 186, 247, 0.79);
+  }
+
+  .fc-day-header {
+    color: white;
+  }
+
+  .fc-time-grid-container .fc-divider, .fc-content-skeleton .fc-divider {
+    display: none !important;
+  }
+
+  .fc-slats td.fc-widget-content {
+    border-top: 1px solid #ddd;
+  }
+
+  &.fc-unthemed .fc-today {
+    background-color: transparent;
+  }
+
+  .fc-head {
+    display: none;
+  }
+}

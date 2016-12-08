@@ -1,0 +1,27 @@
+.home {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home__month {
+  width: 66%;
+  height: 100vh;
+}
+
+.home__day {
+  width: 33%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__active-date {
+  font-size: 26px;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+
+.home__day-calendar{
+  height: 100%;
+}

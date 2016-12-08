@@ -8,11 +8,14 @@
   </div>
 
   <div class='home__day'>
-    {{day-calendar
-      events=events
-      activeDate=activeDate
-      openCreateEventModal=(action "openCreateEventModal")
-      updateEvent=(action "updateEvent")}}
+    <span class='home__active-date'>{{activeDateSemantic}}</span>
+    <div class='home__day-calendar'>
+      {{day-calendar
+        events=events
+        activeDate=activeDate
+        openCreateEventModal=(action "openCreateEventModal")
+        updateEvent=(action "updateEvent")}}
+    </div>
   </div>
 </div>
 
