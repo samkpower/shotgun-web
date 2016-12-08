@@ -4,6 +4,9 @@ const { computed, Controller } = Ember;
 
 export default Controller.extend({
   activeDate: moment(),
+  activeDateSemantic: computed('activeDate', function() {
+    return moment(this.get('activeDate')).format('LL');
+  }),
   showCreateEventModal: false,
   newEvent: computed(() => { return {}; }),
   events: computed('model.events.[]', 'model.events.@each.start', 'model.events.@each.end', 'model.events.@each.name', function() {

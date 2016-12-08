@@ -3,12 +3,13 @@ const { observer, computed, Component, inject } = Ember;
 
 export default Component.extend({
   store: inject.service(),
+  tagName: 'day-calendar',
 
   // passed variables
   activeDate: null,
   events: null,
   minTime: '08:00:00',
-  maxTime: '18:00:00',
+  maxTime: '24:00:00',
 
   // computed properties
   dayCalendarElem: computed(function() {
@@ -37,7 +38,10 @@ export default Component.extend({
 
     this.$().fullCalendar({
       defaultView: 'agendaDay',
-      height: 'auto',
+      header: false,
+      footer: false,
+      allDaySlot: false,
+      height: 'parent',
       events: events,
       defaultDate: activeDate,
       minTime: this.get('minTime'),
