@@ -1,0 +1,21 @@
+<form>
+  <label class='s-input-group'>
+    {{input value=newEventName placeholder='Event name...' class='id-event-name'}}
+  </label>
+  <label class='s-input-group'>
+    <span class='s-input-label'>Date:</span>
+    <br/>{{input value=newEventDate class='id-event-date'}}
+  </label>
+  <label class='s-input-group'>
+    <span class='s-input-label'>Start:</span>
+    <br/>{{input value=newEventStartTime class='id-event-start-time'}}
+  </label>
+  <label class='s-input-group'>
+    <span class='s-input-label'>End:</span>
+    <br/>{{input value=newEventEndTime class='id-event-start-end'}}
+  </label>
+
+  <button class='s-btn' {{action 'saveEvent'}}>
+    <span class='s-btn__text'>save</span>
+  </button>
+</form>

@@ -3,8 +3,21 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 $font-primary: 'Lora', 'Calibri', 'Helvetica', 'Arial', sans-serif;
 
+// Colors
+$color-light-bluish-grey: #8C999C;
+$color-dark-bluish-grey: #394244;
+
+$color-light-robin-egg: #E0FCFF;
+$color-medium-cobalt: rgb(75, 186, 247);
+
+$color-light-yellow: #fcf8e3;
+
 // Global defaults
 body {
   font-family: $font-primary;
   margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
 }
