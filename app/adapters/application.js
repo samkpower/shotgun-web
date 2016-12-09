@@ -8,5 +8,6 @@ export default DS.JSONAPIAdapter.extend({
       'accept': 'application/json',
       'content-type': 'application/json',
     };
-  })
+  }),
+  host: 'https://skp-shotgun-api.herokuapp.com'
 });

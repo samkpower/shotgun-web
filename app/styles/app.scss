@@ -5,9 +5,15 @@
 // Style Guide
 @import 'style-guide';
 
+// Vendor Overrides
+@import 'vendor-overrides/pikaday';
+@import 'vendor-overrides/timepicker';
+
 // Components
 @import 'components/month-calendar';
 @import 'components/day-calendar';
+@import 'components/forms/create-event-form';
+@import 'components/modals/create-event-modal';
 
 // Templates
 @import 'templates/home';

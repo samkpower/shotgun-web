@@ -1,0 +1,68 @@
+@keyframes excitedBtn {
+  from {
+    bottom: -2px;
+  }
+
+  to {
+    bottom: 3px
+  }
+}
+
+create-event-form {
+  display: block;
+  padding: 20px;
+
+  .s-btn {
+    padding: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    border: 1px solid $color-light-bluish-grey;
+    cursor: pointer;
+    width: 100%;
+
+    font-family: $font-primary;
+    color: $color-light-bluish-grey;
+
+    transition: background-color 1s;
+
+    &:hover {
+      // background-color: $color-light-robin-egg;
+
+      .s-btn__text {
+        position: relative;
+        animation-name: excitedBtn;
+        animation-duration: 0.3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+  }
+
+  .s-input-group {
+    display: block;
+    margin-bottom: 20px;
+
+    input {
+      font-size: 20px;
+      width: 100%;
+      border-width: 0;
+      border-bottom: 2px dotted transparent;
+
+      font-family: $font-primary;
+      color: $color-light-bluish-grey;
+
+      transition: border-bottom 0.3s;
+
+      &:focus {
+        outline: none;
+        border-bottom: 2px dotted $color-light-bluish-grey;
+      }
+    }
+
+  }
+
+  .s-input-label {
+    font-size: 20px;
+    color: $color-dark-bluish-grey;
+  }
+}

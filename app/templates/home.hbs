@@ -1,10 +1,10 @@
-<div class='home'>
+<div class='home__body'>
   <div class='home__month'>
     {{month-calendar
       events=events
       activeDate=activeDate
-      setActiveDate=(action "setActiveDate")
-      updateEvent=(action "updateEvent")}}
+      setActiveDate=(action 'setActiveDate')
+      updateEvent=(action 'updateEvent')}}
   </div>
 
   <div class='home__day'>
@@ -13,10 +13,12 @@
       {{day-calendar
         events=events
         activeDate=activeDate
-        openCreateEventModal=(action "openCreateEventModal")
-        updateEvent=(action "updateEvent")}}
+        openCreateEventModal=(action 'openCreateEventModal')
+        updateEvent=(action 'updateEvent')}}
     </div>
   </div>
 </div>
 
-{{modals/create-event showModal=showCreateEventModal newEvent=newEvent}}
+{{modals/create-event-modal
+  showModal=showCreateEventModal
+  newEvent=newEvent}}

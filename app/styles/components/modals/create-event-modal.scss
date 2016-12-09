@@ -1,0 +1,9 @@
+.ember-modal-dialog {
+  border-radius: 0px;
+  box-shadow: 0 0;
+}
+
+.ember-modal-overlay.translucent {
+  background-color: transparentize($color-dark-bluish-grey, 0.3);
+  transition: background-color 2s;
+}

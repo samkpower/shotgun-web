@@ -11,8 +11,8 @@ month-calendar {
     border-radius: 0;
     border: 0px;
     padding: 2px;
-    background-color: rgba(75, 186, 247, 0.79);
-    border: 1px solid rgba(75, 186, 247, 0.79);
+    background-color: transparentize($color-medium-cobalt, 0.2);
+    border: 1px solid transparentize($color-medium-cobalt, 0.2);
   }
 
   .fc-head .fc-widget-header {
@@ -29,12 +29,12 @@ month-calendar {
   }
 
   .fc-day, &.fc th {
-    background-color: #E0FCFF;
+    background-color: $color-light-robin-egg;
     border: 3px solid white;
   }
 
   &.fc-unthemed .fc-today {
-    background-color: #E0FCFF;
+    background-color: $color-light-robin-egg;
     border: 3px solid white;
     border-bottom: 0px;
   }
@@ -44,6 +44,6 @@ month-calendar {
   }
 
   .month-calendar__active-day, &.fc-unthemed .fc-today.month-calendar__active-day  {
-    background-color: #fcf8e3;
+    background-color: $color-light-yellow;
   }
 }

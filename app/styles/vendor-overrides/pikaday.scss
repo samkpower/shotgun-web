@@ -1,0 +1,30 @@
+// Pikday overwrites
+.pika-lendar {
+  font-family: $font-primary;
+}
+
+.is-selected .pika-button.pika-day {
+  border-radius: 0px;
+  box-shadow: none;
+  background-color: $color-light-yellow;
+  color: #666;
+}
+
+.is-today .pika-button.pika-day {
+  color: #666;
+  font-weight: normal;
+}
+
+.pika-button.pika-day {
+  border-radius: 0px;
+  border: 1px solid white;
+  background-color: $color-light-robin-egg;
+  box-shadow: none;
+  font-family: $font-primary;
+
+  &:hover {
+    border-radius: 0px;
+    color: #666;
+    background-color: transparentize($color-medium-cobalt, 0.2);
+  }
+}

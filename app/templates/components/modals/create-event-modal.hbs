@@ -1,0 +1,10 @@
+{{#if showModal}}
+  {{#modal-dialog close="closeModal"
+                  targetAttachment="center"
+                  wrapperClassNames='wrapppppper'
+                  translucentOverlay=true}}
+    {{forms/create-event-form
+      newEvent=newEvent
+      closeModal=(action 'closeModal')}}
+  {{/modal-dialog}}
+{{/if}}

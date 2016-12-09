@@ -10,6 +10,11 @@ module.exports = function(defaults) {
   app.import("bower_components/moment/moment.js");
   app.import("bower_components/fullcalendar/dist/fullcalendar.js");
   app.import("bower_components/fullcalendar/dist/fullcalendar.css");
+  app.import("bower_components/jt.timepicker/jquery.timepicker.js");
+  app.import("bower_components/jt.timepicker/jquery.timepicker.css");
+  app.import("bower_components/pikaday/pikaday.js");
+  app.import("bower_components/pikaday/plugins/pikaday.jquery.js");
+  app.import("bower_components/pikaday/css/pikaday.css");
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

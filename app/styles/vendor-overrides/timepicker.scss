@@ -1,0 +1,13 @@
+.ui-timepicker-list li {
+  color: $color-dark-bluish-grey;
+
+  &:hover, &:hover.ui-timepicker-selected {
+    background-color: $color-light-robin-egg;
+    color: $color-dark-bluish-grey;
+  }
+
+  &.ui-timepicker-selected {
+    background-color: $color-light-yellow;
+    color: $color-dark-bluish-grey;
+  }
+}

@@ -9,6 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('users');
   this.route('home', { path: '/' });
+
+  if (config.environment === 'development') {
+    this.route('playground', { path: '/playground' });
+  }
 });
 
 export default Router;
