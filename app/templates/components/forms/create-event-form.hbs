@@ -1,19 +1,22 @@
 <form>
-  <label class='s-input-group'>
-    {{input value=newEventName placeholder='Event name...' class='id-event-name'}}
-  </label>
-  <label class='s-input-group'>
-    <span class='s-input-label'>Date:</span>
-    <br/>{{input value=newEventDate class='id-event-date'}}
-  </label>
-  <label class='s-input-group'>
-    <span class='s-input-label'>Start:</span>
-    <br/>{{input value=newEventStartTime class='id-event-start-time'}}
-  </label>
-  <label class='s-input-group'>
-    <span class='s-input-label'>End:</span>
-    <br/>{{input value=newEventEndTime class='id-event-start-end'}}
-  </label>
+  {{s-input value=formData.name
+    placeholder='Event name...'
+    errors=errors.name}}
+
+  {{s-input value=formData.date
+    label='Date:'
+    typeIsDate=true
+    errors=errors.date}}
+
+  {{s-input value=formData.startTime
+    label='Starts at:'
+    typeIsTime=true
+    errors=errors.startTime}}
+
+  {{s-input value=formData.endTime
+    label='Ends at:'
+    typeIsTime=true
+    errors=errors.endTime}}
 
   <button class='s-btn' {{action 'saveEvent'}}>
     <span class='s-btn__text'>save</span>
