@@ -11,57 +11,82 @@ export default Component.extend({
   newEvent: null,
 
   // computed properties
-  newEventName: computed.alias('newEvent.name'),
-  newEventDate: computed('newEvent.start', function() {
-    return this.get('newEvent.start').format('YYYY-MM-DD');
+  errors: computed(function() {
+    return {};
   }),
-  newEventStartTime: computed('newEvent.start', function() {
-    return this.get('newEvent.start').format('h:mma');
-  }),
-  newEventEndTime: computed('newEvent.end', function() {
-    return this.get('newEvent.end').format('h:mma');
-  }),
-  newEventStart: computed('newEventStartTime', 'newEventDate', function() {
-    return moment(`${this.get('newEventDate')}${this.get('newEventStartTime')}` ,'YYYY-MM-DDh:ma');
-  }),
-  newEventEnd: computed('newEventStartTime', 'newEventDate', function() {
-    return moment(`${this.get('newEventDate')}${this.get('newEventEndTime')}` ,'YYYY-MM-DDh:ma');
+  hasErrors: computed.equal('errors', {}),
+
+  formData: computed('newEvent.start', 'newEvent.end', 'newEvent.name', function() {
+    return {
+      name: this.get('newEvent.name'),
+      date: this.get('newEvent.start').format('YYYY-MM-DD'),
+      startTime: this.get('newEvent.start').format('h:mma'),
+      endTime: this.get('newEvent.end').format('h:mma')
+    };
   }),
 
-  // private methods
-  _setAutofocus() {
-    this.$('.id-event-name').focus();
-  },
-
-  _initializeTimepickers() {
-    this.$('.id-event-start-time').timepicker();
-    this.$('.id-event-start-end').timepicker();
-    this.$('.id-event-date').pikaday({ defaultDate: this.get('newEventdate') });
-  },
+  formEventStart: computed('formData.startTime', 'formData.date', function() {
+    return moment(`${this.get('formData.date')}${this.get('formData.startTime')}`, 'YYYY-MM-DDh:ma');
+  }),
+  formEventEnd: computed('formData.endTime', 'formData.date', function() {
+    return moment(`${this.get('formData.date')}${this.get('formData.endTime')}`, 'YYYY-MM-DDh:ma');
+  }),
 
   // hooks
   didInsertElement() {
     this._super(...arguments);
 
     run.once('afterRender', () => {
-      this._initializeTimepickers();
       this._setAutofocus();
     });
   },
 
+  // private methods
+  _setAutofocus() {
+    this.$('.id-event-name').focus();
+  },
+
+  _runClientValidations() {
+    this.set('errors', {});
+
+    if (!this.get('formData.name')) {
+      this.set('errors.name', "can't be blank");
+    }
+
+    if (!this.get('formData.date')) {
+      this.set('errors.date', "can't be blank");
+    }
+
+    if (!this.get('formData.startTime')) {
+      this.set('errors.startTime', "can't be blank");
+    }
+
+    if (!this.get('formData.endTime')) {
+      this.set('errors.endTime', "can't be blank");
+    }
+
+    if (this.get('hasErrors')) {
+      return false;
+    } else {
+      return true;
+    }
+  },
+
   actions: {
     saveEvent() {
-      let newEvent = this.get('store').createRecord('event', {
-        name: this.get('newEvent.name'),
-        start: new Date(this.get('newEventStart')),
-        end: new Date(this.get('newEventEnd'))
-      });
+      if (this._runClientValidations()) {
+        let newEvent = this.get('store').createRecord('event', {
+          name: this.get('formData.name'),
+          start: this.get('formEventStart'),
+          end: this.get('formEventEnd')
+        });
 
-      newEvent.save().then(() => {
-        this.get('closeModal')();
-      }).catch(() => {
-        this.get('closeModal')();
-      });
+        newEvent.save().then(() => {
+          this.get('closeModal')();
+        }).catch((formEvent) => {
+          this.set('errors', formEvent.errors);
+        });
+      }
     },
   }
 });

@@ -1,0 +1,19 @@
+{{#if typeIsDate}}
+  <label class='s-input-group'>
+    <span class='s-input-label'>{{label}}</span>
+    <br/>{{input value=value class=inputClass placeholder='YYYY-MM-DD' class='id-datepicker'}}
+    <span class='s-input__errors'>{{errors}}</span>
+  </label>
+{{else if typeIsTime}}
+  <label class='s-input-group'>
+    <span class='s-input-label'>{{label}}</span>
+    <br/>{{input value=value class=inputClass placeholder='00:00' class='id-timepicker'}}
+    <span class='s-input__errors'>{{errors}}</span>
+  </label>
+{{else}}
+  <label class='s-input-group'>
+    <span class='s-input-label'>{{label}}</span>
+    {{input value=value placeholder=placeholder class=inputClass}}
+    <span class='s-input__errors'>{{errors}}</span>
+  </label>
+{{/if}}

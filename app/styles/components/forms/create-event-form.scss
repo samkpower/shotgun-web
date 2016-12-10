@@ -37,32 +37,4 @@ create-event-form {
       }
     }
   }
-
-  .s-input-group {
-    display: block;
-    margin-bottom: 20px;
-
-    input {
-      font-size: 20px;
-      width: 100%;
-      border-width: 0;
-      border-bottom: 2px dotted transparent;
-
-      font-family: $font-primary;
-      color: $color-light-bluish-grey;
-
-      transition: border-bottom 0.3s;
-
-      &:focus {
-        outline: none;
-        border-bottom: 2px dotted $color-light-bluish-grey;
-      }
-    }
-
-  }
-
-  .s-input-label {
-    font-size: 20px;
-    color: $color-dark-bluish-grey;
-  }
 }

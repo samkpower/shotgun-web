@@ -1,0 +1,48 @@
+.s-input {
+  &.s-input--has-errors {
+    .s-input__errors {
+      border-top: 1px solid #FE6A6A;
+      color: $color-light-red;
+    }
+  }
+}
+
+.s-input-group {
+  display: block;
+  margin-bottom: 10px;
+
+  input {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    border-width: 0;
+    border-bottom: 2px dotted transparent;
+
+    font-family: $font-primary;
+    color: $color-light-bluish-grey;
+
+    transition: border-bottom 0.3s;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px dotted $color-light-bluish-grey;
+    }
+  }
+}
+
+.s-input-label {
+  font-size: 20px;
+  color: $color-dark-bluish-grey;
+}
+
+.s-input__errors {
+  border-top: 1px solid transparent;
+  color: transparent;
+  width: 100%;
+  font-size: 14px;
+  height: 16px;
+  text-align: right;
+  margin-top: 1px;
+  display: block;
+  transition: color 0.3s, border-top 0.3s;
+}
