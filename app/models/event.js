@@ -20,8 +20,8 @@ export default DS.Model.extend({
   fullCalendarFormat: computed('start', 'end', 'name', 'id', function() {
     return {
       title: this.get('name'),
-      start: new Date(this.get('start')),
-      end: new Date(this.get('end')),
+      start: this.get('start'),
+      end: this.get('end'),
       id: this.get('id')
     };
   })

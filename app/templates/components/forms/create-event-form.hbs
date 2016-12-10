@@ -1,7 +1,8 @@
 <form>
   {{s-input value=formData.name
     placeholder='Event name...'
-    errors=errors.name}}
+    errors=errors.name
+    class='event-form__name'}}
 
   {{s-input value=formData.date
     label='Date:'
@@ -18,7 +19,8 @@
     typeIsTime=true
     errors=errors.endTime}}
 
-  <button class='s-btn' {{action 'saveEvent'}}>
+  <button class='s-btn' {{action 'submitForm'}}>
     <span class='s-btn__text'>save</span>
   </button>
+  <a class='event-form__delete' {{action 'deleteEvent'}}>delete event</a>
 </form>

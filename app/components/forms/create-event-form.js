@@ -8,28 +8,27 @@ export default Component.extend({
 
   // passed variables
   showModal: null,
-  newEvent: null,
+  formEvent: null,
 
   // computed properties
-  errors: computed(function() {
-    return {};
-  }),
+  errors: {},
   hasErrors: computed.equal('errors', {}),
-
-  formData: computed('newEvent.start', 'newEvent.end', 'newEvent.name', function() {
+  eventIsNew: computed.empty('formEvent.id'),
+  formData: computed('formEvent.start', 'formEvent.end', 'formEvent.name', function() {
     return {
-      name: this.get('newEvent.name'),
-      date: this.get('newEvent.start').format('YYYY-MM-DD'),
-      startTime: this.get('newEvent.start').format('h:mma'),
-      endTime: this.get('newEvent.end').format('h:mma')
+      name: this.get('formEvent.name'),
+      date: this.get('formEvent.start').format('YYYY-MM-DD'),
+      startTime: this.get('formEvent.start').format('h:mma'),
+      endTime: this.get('formEvent.end').format('h:mma')
     };
   }),
-
-  formEventStart: computed('formData.startTime', 'formData.date', function() {
-    return moment(`${this.get('formData.date')}${this.get('formData.startTime')}`, 'YYYY-MM-DDh:ma');
+  formDataStart: computed('formData.startTime', 'formData.date', function() {
+    let parseableDatetime = `${this.get('formData.date')}${this.get('formData.startTime')}`;
+    return moment.parseZone(parseableDatetime, 'YYYY-MM-DDh:ma');
   }),
-  formEventEnd: computed('formData.endTime', 'formData.date', function() {
-    return moment(`${this.get('formData.date')}${this.get('formData.endTime')}`, 'YYYY-MM-DDh:ma');
+  formDataEnd: computed('formData.endTime', 'formData.date', function() {
+    let parseableDatetime = `${this.get('formData.date')}${this.get('formData.endTime')}`;
+    return moment.parseZone(parseableDatetime, 'YYYY-MM-DDh:mma');
   }),
 
   // hooks
@@ -43,7 +42,7 @@ export default Component.extend({
 
   // private methods
   _setAutofocus() {
-    this.$('.id-event-name').focus();
+    this.$('.event-form__name input').focus();
   },
 
   _runClientValidations() {
@@ -65,28 +64,59 @@ export default Component.extend({
       this.set('errors.endTime', "can't be blank");
     }
 
-    if (this.get('hasErrors')) {
-      return false;
-    } else {
+    if (!this.get('hasErrors')) {
       return true;
+    } else {
+      return false;
     }
   },
 
-  actions: {
-    saveEvent() {
-      if (this._runClientValidations()) {
-        let newEvent = this.get('store').createRecord('event', {
-          name: this.get('formData.name'),
-          start: this.get('formEventStart'),
-          end: this.get('formEventEnd')
-        });
+  _updateEvent() {
+    this.get('store').findRecord('event', this.get('formEvent.id')).then((event) => {
+      event.set('name', this.get('formData.name'));
+      event.set('start', this.get('formDataStart'));
+      event.set('end', this.get('formDataEnd'));
 
-        newEvent.save().then(() => {
+      event.save().then(() => {
+        this.get('closeModal')();
+      }).catch((formEvent) => {
+        this.set('errors', formEvent.errors);
+      });
+    });
+  },
+
+  _createEvent() {
+    let formEvent = this.get('store').createRecord('event', {
+      name: this.get('formData.name'),
+      start: this.get('formDataStart'),
+      end: this.get('formDataEnd')
+    });
+    formEvent.save().then(() => {
+      this.get('closeModal')();
+    }).catch((formEvent) => {
+      this.set('errors', formEvent.errors);
+    });
+  },
+
+  actions: {
+    submitForm() {
+      if (this._runClientValidations()) {
+        if (this.get('eventIsNew')) {
+          this._createEvent();
+        } else {
+          this._updateEvent();
+        }
+      }
+    },
+
+    deleteEvent() {
+      this.get('store').findRecord('event', this.get('formEvent.id'), { backgroundReload: false }).then((event) => {
+        event.destroyRecord().then(() => {
           this.get('closeModal')();
         }).catch((formEvent) => {
           this.set('errors', formEvent.errors);
         });
-      }
-    },
+      });
+    }
   }
 });

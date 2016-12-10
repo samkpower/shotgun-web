@@ -1,5 +1,6 @@
 import Ember from 'ember';
-const { observer, computed, Component, inject } = Ember;
+import moment from 'moment';
+const { observer, computed, Component, inject, $ } = Ember;
 
 export default Component.extend({
   store: inject.service(),
@@ -48,7 +49,7 @@ export default Component.extend({
       maxTime: this.get('maxTime'),
       selectable: true,
       select: (start, end) => {
-        this.get('openCreateEventModal')({ start: start, end: end });
+        this.get('openEventModal')({ start: start, end: end });
       },
       editable: true,
       eventDrop: (event) => {
@@ -56,6 +57,14 @@ export default Component.extend({
       },
       eventResize: (event) => {
         this.get('updateEvent')(event.id, { start: event.start, end: event.end });
+      },
+      eventRender: (event, element) => {
+        element.find('.fc-time').append("<i class='fa fa-pencil-square-o u-float-right fc-edit-icon'/>");
+      },
+      eventClick: (event, jsEvent) => {
+        if ($('.fc-edit-icon').is(jsEvent.target)) {
+          this.get('openEventModal')({ id: event.id, start: event.start, end: event.end, name: event.title });
+        }
       }
     });
   },
