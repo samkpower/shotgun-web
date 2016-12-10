@@ -77,8 +77,8 @@ export default Component.extend({
       if (this._runClientValidations()) {
         let newEvent = this.get('store').createRecord('event', {
           name: this.get('formData.name'),
-          start: new Date(this.get('formEventStart')),
-          end: new Date(this.get('formEventEnd'))
+          start: this.get('formEventStart'),
+          end: this.get('formEventEnd')
         });
 
         newEvent.save().then(() => {
