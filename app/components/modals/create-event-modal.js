@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
   // passed variables
   showModal: null,
-  newEvent: null,
+  formEvent: null,
 
   actions: {
     closeModal() {

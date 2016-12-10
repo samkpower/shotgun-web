@@ -8,7 +8,7 @@ export default Controller.extend({
     return moment(this.get('activeDate')).format('LL');
   }),
   showCreateEventModal: false,
-  newEvent: computed(() => { return {}; }),
+  formEvent: {},
   events: computed('model.events.[]', 'model.events.@each.start', 'model.events.@each.end', 'model.events.@each.name', function() {
     return this.get('model.events').map((event) => {
       return event.get('fullCalendarFormat');
@@ -19,9 +19,8 @@ export default Controller.extend({
     setActiveDate(newActiveDate) {
       this.set('activeDate', newActiveDate);
     },
-    openCreateEventModal(eventObject) {
-      this.set('newEvent.start', eventObject.start);
-      this.set('newEvent.end', eventObject.end);
+    openEventModal(eventObject) {
+      this.set('formEvent', eventObject);
       this.toggleProperty('showCreateEventModal');
     },
     updateEvent(eventId, eventProperties) {

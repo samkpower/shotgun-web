@@ -23,6 +23,15 @@ day-calendar {
     background-color: rgba(75, 186, 247, 0.79);
   }
 
+  .fc-edit-icon {
+    font-size: 20px;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
   .fc-day-header {
     color: white;
   }
