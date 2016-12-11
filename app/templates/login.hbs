@@ -1,0 +1,25 @@
+<div class='login__logo'>
+  <img src='/assets/images/flow-logo.svg'>
+</div>
+
+<div class='login__username'>
+  {{#if session.isAuthenticated}}
+    {{currentUser.email}}
+    <br>
+    <a {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    Anyonymous
+  {{/if}}
+</div>
+
+<div class='login__body'>
+  <div class='login__sign-up-form'>
+    <h2 class='login__h2'>Sign up here.</h2>
+    {{forms/create-user-form}}
+  </div>
+
+  <div class='login__log-in-form'>
+    <h2 class='login__h2'>Log in here.</h2>
+    {{forms/create-session-form}}
+  </div>
+</div>

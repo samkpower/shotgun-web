@@ -1,8 +1,9 @@
 import DS from 'ember-data';
+let { attr } = DS;
 
 export default DS.Model.extend({
-  email: DS.attr('string'),
-  firstName: DS.attr('string'),
-  lastName: DS.attr('string'),
-  phone: DS.attr('string')
+  email: attr('string'),
+  firstName: attr('string'),
+  password: attr('string'),
+  passwordConfirmation: attr('string')
 });
