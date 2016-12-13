@@ -1,0 +1,21 @@
+<form>
+  {{s-input value=newUser.firstName
+    label='Name:'
+    placeholder='What can I call you?'
+    errors=errors.name}}
+
+  {{s-input value=newUser.email
+    label='Email:'
+    errors=errors.email
+    class='s-input--show-underline'}}
+
+  {{s-input value=newUser.password
+    label='Password:'
+    errors=errors.password
+    class='s-input--show-underline'
+    typeIsPassword=true}}
+
+  <button class='s-btn' {{action 'submitForm'}}>
+    <span class='s-btn__text'>sign up</span>
+  </button>
+</form>

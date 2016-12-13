@@ -4,6 +4,8 @@
 $font-primary: 'Lora', 'Calibri', 'Helvetica', 'Arial', sans-serif;
 
 // Colors
+$color-light-grey: #E3E7E8;
+
 $color-light-bluish-grey: #8C999C;
 $color-dark-bluish-grey: #394244;
 
@@ -18,8 +20,23 @@ $color-light-red: #FE6A6A;
 body {
   font-family: $font-primary;
   margin: 0px;
+  min-height: 100vh;
+}
+
+a {
+  cursor: pointer;
 }
 
 * {
   box-sizing: border-box;
+}
+
+// Font classes
+
+.f-h1 {
+  font-size: 48px;
+}
+
+.f-h2 {
+  font-size: 36px;
 }

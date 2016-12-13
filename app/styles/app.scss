@@ -4,6 +4,7 @@
 
 // Style Guide
 @import 'style-guide';
+@import 'style-guide/s-btn';
 
 // Vendor Overrides
 @import 'vendor-overrides/pikaday';
@@ -18,6 +19,7 @@
 
 // Templates
 @import 'templates/home';
+@import 'templates/login';
 
 // Utilities
 .u-float-right {

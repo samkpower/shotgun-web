@@ -1,0 +1,43 @@
+.login__logo {
+  position: fixed;
+  padding: 20px 0 0 20px;
+
+  img {
+    height: 100px;
+  }
+}
+
+.login__body {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login__sign-up-form {
+  width: 30%;
+  padding: 40px;
+
+  border-right: 3px solid $color-light-grey;
+  padding-right: 60px;
+}
+
+.login__log-in-form {
+  width: 30%;
+  padding: 40px;
+
+  padding-left: 60px;
+}
+
+.login__h2 {
+  font-size: 36px;
+  color: $color-light-bluish-grey;
+  font-family: 'Source Sans Pro';
+}
+
+.login__username {
+  width: 100%;
+  text-align: right;
+  padding: 20px;
+}

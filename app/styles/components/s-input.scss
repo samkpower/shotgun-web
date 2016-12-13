@@ -5,6 +5,12 @@
       color: $color-light-red;
     }
   }
+
+  &.s-input--show-underline {
+    input {
+      border-bottom: 2px dotted $color-light-bluish-grey;
+    }
+  }
 }
 
 .s-input-group {

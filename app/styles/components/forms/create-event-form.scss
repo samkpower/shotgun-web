@@ -20,30 +20,4 @@ create-event-form {
     padding: 10px 0;
     cursor: pointer;
   }
-
-  .s-btn {
-    padding: 10px;
-    font-size: 20px;
-    background-color: transparent;
-    border: 1px solid $color-light-bluish-grey;
-    cursor: pointer;
-    width: 100%;
-
-    font-family: $font-primary;
-    color: $color-light-bluish-grey;
-
-    transition: background-color 1s;
-
-    &:hover {
-      // background-color: $color-light-robin-egg;
-
-      .s-btn__text {
-        position: relative;
-        animation-name: excitedBtn;
-        animation-duration: 0.3s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-      }
-    }
-  }
 }

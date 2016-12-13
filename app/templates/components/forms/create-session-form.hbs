@@ -1,0 +1,16 @@
+<form>
+  {{s-input value=email
+    label='Email:'
+    errors=errors.email
+    class='s-input--show-underline'}}
+
+  {{s-input value=password
+    label='Password:'
+    errors=errors.password
+    class='s-input--show-underline'
+    typeIsPassword=true}}
+
+  <button class='s-btn' {{action 'submitForm'}}>
+    <span class='s-btn__text'>login</span>
+  </button>
+</form>
