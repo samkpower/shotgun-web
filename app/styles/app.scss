@@ -5,6 +5,7 @@
 // Style Guide
 @import 'style-guide';
 @import 'style-guide/s-btn';
+@import 'style-guide/utilities';
 
 // Vendor Overrides
 @import 'vendor-overrides/pikaday';
@@ -16,12 +17,8 @@
 @import 'components/day-calendar';
 @import 'components/forms/create-event-form';
 @import 'components/modals/create-event-modal';
+@import 'components/navigation/top-bar';
 
 // Templates
 @import 'templates/home';
 @import 'templates/login';
-
-// Utilities
-.u-float-right {
-  float: right;
-}

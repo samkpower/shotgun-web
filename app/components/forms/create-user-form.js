@@ -1,8 +1,9 @@
 import Ember from 'ember';
-const { computed, Component } = Ember;
+const { computed, Component, inject: { service } } = Ember;
 
 export default Component.extend({
-  store: Ember.inject.service(),
+  store: service(),
+  session: service('session'),
   tagName: 'create-user-form',
 
   // properties
@@ -19,8 +20,9 @@ export default Component.extend({
       firstName: this.get('newUser.firstName')
     });
 
-    newUser.save().then(() => {
+    newUser.save().then((user) => {
       this.set('newUser', {});
+      this._signInUser(user.get('email'), user.get('password'));
     }).catch((reason) => {
       try {
         let errorsHash = {};
@@ -33,6 +35,14 @@ export default Component.extend({
       } catch(err) {
         alert(`Error: ${reason.errors[0].title}`);
       }
+    });
+  },
+
+  _signInUser(email, password) {
+    this.get('session').authenticate('authenticator:devise', email, password)
+    .catch((reason) => {
+      this.set('errorMessage', reason.error || reason);
+      alert(reason.error || reason);
     });
   },
 

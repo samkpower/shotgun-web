@@ -1,0 +1,13 @@
+<div class='top-bar__logo'>
+  <img src='/assets/images/flow-logo.svg'>
+</div>
+
+<div class='top-bar__username'>
+  {{#if session.isAuthenticated}}
+    {{currentUser.email}}
+    <br>
+    <a {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    Anonymous
+  {{/if}}
+</div>

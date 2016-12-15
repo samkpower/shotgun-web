@@ -1,12 +1,13 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-const { attr } = DS;
+const { attr, belongsTo } = DS;
 const { computed } = Ember;
 
 export default DS.Model.extend({
   start: attr('utc'),
   end: attr('utc'),
   name: attr('string'),
+  user: belongsTo('user'),
   title: computed.alias('name'),
   date: computed('start', function() {
     return this.get('start').format('YYYY-MM-DD');
