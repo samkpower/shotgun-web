@@ -25,12 +25,12 @@ export default Component.extend({
     };
   }),
   formDataStart: computed('formData.startTime', 'formData.date', function() {
-    let parseableDatetime = `${this.get('formData.date')}${this.get('formData.startTime')}`;
-    return moment.parseZone(parseableDatetime, 'YYYY-MM-DDh:ma');
+    let parseableDatetime = `${this.get('formData.date')} ${this.get('formData.startTime')}`;
+    return moment.parseZone(parseableDatetime, 'YYYY-MM-DD hh:ma');
   }),
   formDataEnd: computed('formData.endTime', 'formData.date', function() {
-    let parseableDatetime = `${this.get('formData.date')}${this.get('formData.endTime')}`;
-    return moment.parseZone(parseableDatetime, 'YYYY-MM-DDh:mma');
+    let parseableDatetime = `${this.get('formData.date')} ${this.get('formData.endTime')}`;
+    return moment.parseZone(parseableDatetime, 'YYYY-MM-DD hh:mma');
   }),
 
   // hooks

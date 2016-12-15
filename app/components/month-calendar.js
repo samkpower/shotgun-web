@@ -31,7 +31,7 @@ export default Component.extend({
       editable: true,
       dayNamesShort: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       dayClick: (date) => {
-        this.get('setActiveDate')(date.valueOf());
+        this.get('setActiveDate')(date);
         this._displayActiveDay(date);
       },
       eventDrop: (event) => {
