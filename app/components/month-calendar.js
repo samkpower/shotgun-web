@@ -34,6 +34,10 @@ export default Component.extend({
         this.get('setActiveDate')(date);
         this._displayActiveDay(date);
       },
+      eventClick: (event) => {
+        this.get('setActiveDate')(event.start);
+        this._displayActiveDay(event.start);
+      },
       eventDrop: (event) => {
         this.get('updateEvent')(event.id, { start: event.start, end: event.end });
       }
