@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import moment from 'moment';
-const { computed, Controller } = Ember;
+const { computed, Controller, inject: { service } } = Ember;
 
 export default Controller.extend({
+  store: service(),
   activeDate: moment(),
   activeDateSemantic: computed('activeDate', function() {
     return moment(this.get('activeDate')).format('LL');

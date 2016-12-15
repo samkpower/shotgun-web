@@ -1,9 +1,11 @@
 import Ember from 'ember';
 import moment from 'moment';
-const { computed, Component, run } = Ember;
+const { computed, Component, run, inject: { service } } = Ember;
 
 export default Component.extend({
-  store: Ember.inject.service(),
+  store: service(),
+  session: service(),
+  currentUser: computed.oneWay('session.currentUser'),
   tagName: 'create-event-form',
 
   // passed variables
@@ -19,7 +21,7 @@ export default Component.extend({
       name: this.get('formEvent.name'),
       date: this.get('formEvent.start').format('YYYY-MM-DD'),
       startTime: this.get('formEvent.start').format('h:mma'),
-      endTime: this.get('formEvent.end').format('h:mma')
+      endTime: this.get('formEvent.end').format('h:mma'),
     };
   }),
   formDataStart: computed('formData.startTime', 'formData.date', function() {
@@ -76,7 +78,6 @@ export default Component.extend({
       event.set('name', this.get('formData.name'));
       event.set('start', this.get('formDataStart'));
       event.set('end', this.get('formDataEnd'));
-
       event.save().then(() => {
         this.get('closeModal')();
       }).catch((formEvent) => {
@@ -86,15 +87,19 @@ export default Component.extend({
   },
 
   _createEvent() {
-    let formEvent = this.get('store').createRecord('event', {
-      name: this.get('formData.name'),
-      start: this.get('formDataStart'),
-      end: this.get('formDataEnd')
-    });
-    formEvent.save().then(() => {
-      this.get('closeModal')();
-    }).catch((formEvent) => {
-      this.set('errors', formEvent.errors);
+    this.get('store').findRecord('user', this.get('currentUser.id')).then((user) => {
+      let formEvent = this.get('store').createRecord('event', {
+        name: this.get('formData.name'),
+        start: this.get('formDataStart'),
+        end: this.get('formDataEnd'),
+        user: user
+      });
+
+      formEvent.save().then(() => {
+        this.get('closeModal')();
+      }).catch((formEvent) => {
+        this.set('errors', formEvent.errors);
+      });
     });
   },
 
