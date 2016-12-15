@@ -1,49 +1,88 @@
 month-calendar {
-  height: 100vh;
+  display: block;
+  height: 90%;
 
   // FullCalendar overwrites
-  .fc-today-button {
-    display: none;
-  }
-
   .fc-day-grid-event {
     margin: 0;
     border-radius: 0;
     border: 0px;
     padding: 2px;
-    background-color: transparentize($color-medium-cobalt, 0.2);
-    border: 1px solid transparentize($color-medium-cobalt, 0.2);
-  }
-
-  .fc-head .fc-widget-header {
-    margin-right: 0px !important;
-    border-right-width: 0px;
+    background-color: rgba(75, 186, 247, 0.79);
+    border: 1px solid rgba(75, 186, 247, 1)
   }
 
   .fc-head-container, .fc-widget-content {
-    border: none;
+    border-width: 0;
   }
 
   .fc-head .fc-day-header {
-    background-color: white;
+    background-color: transparent;
+    color: $color-light-bluish-grey;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 5px;
   }
 
-  .fc-day, &.fc th {
-    background-color: $color-light-robin-egg;
-    border: 3px solid white;
+  .fc-bg .fc-day {
+    background-color: #F3F4F4;
+    border: 10px solid white;
   }
 
-  &.fc-unthemed .fc-today {
-    background-color: $color-light-robin-egg;
-    border: 3px solid white;
-    border-bottom: 0px;
+  .fc-week {
+    padding-top: 10px;
+  }
+
+  .fc-content-skeleton .fc-day-top {
+    padding-right: calc(10px/2);
+  }
+
+  .fc-row .fc-content-skeleton {
+    padding-bottom: 0px;
+  }
+
+  .fc-week:first-child {
+    padding: initial;
+  }
+
+  .fc-day-header {
+    border-width: 0px;
   }
 
   .fc-scroller {
     overflow: visible !important;
   }
 
-  .month-calendar__active-day, &.fc-unthemed .fc-today.month-calendar__active-day  {
+  .fc-bg .month-calendar__active-day  {
     background-color: $color-light-yellow;
+  }
+
+  .fc-day-grid-event .fc-content {
+    white-space: initial;
+  }
+
+  .fc-row .fc-highlight-skeleton td {
+    border: 10px solid transparent;
+  }
+
+  .fc-row .fc-content-skeleton tbody td {
+    border: 10px solid transparent;
+  }
+
+  .fc-event-container {
+    padding: 0px;
+  }
+
+  .fc-day-number {
+    color: $color-light-bluish-grey;
+    font-weight: 700;
+  }
+
+  .fc-title {
+    text-shadow: 0px 0px 1px transparentize(#63BED4, 0.5);
+  }
+
+  .fc-time {
+    text-shadow: 0px 0px 1px transparentize(#63BED4, 0.5);
   }
 }

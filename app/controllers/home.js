@@ -5,9 +5,6 @@ const { computed, Controller, inject: { service } } = Ember;
 export default Controller.extend({
   store: service(),
   activeDate: moment(),
-  activeDateSemantic: computed('activeDate', function() {
-    return moment(this.get('activeDate')).format('LL');
-  }),
   showCreateEventModal: false,
   formEvent: {},
   events: computed('model.events.[]', 'model.events.@each.start', 'model.events.@each.end', 'model.events.@each.name', function() {

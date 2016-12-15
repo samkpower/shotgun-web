@@ -1,20 +1,22 @@
 <div class='home__body'>
-  <div class='home__month'>
-    {{month-calendar
-      events=events
-      activeDate=activeDate
-      setActiveDate=(action 'setActiveDate')
-      updateEvent=(action 'updateEvent')}}
-  </div>
-
   <div class='home__day'>
-    <span class='home__active-date'>{{activeDateSemantic}}</span>
+    <span class='home__active-date'>{{moment-format activeDate "dddd"}},<br>{{moment-format activeDate "MMMM DD"}}</span>
     <div class='home__day-calendar'>
       {{day-calendar
         events=events
         activeDate=activeDate
         openEventModal=(action 'openEventModal')
         updateEvent=(action 'updateEvent')}}
+    </div>
+  </div>
+  <div class='home__month'>
+    <span class='home__active-month'>{{moment-format activeDate "MMMM YYYY"}}</span>
+    <div class='home__month-calendar'>
+    {{month-calendar
+      events=events
+      activeDate=activeDate
+      setActiveDate=(action 'setActiveDate')
+      updateEvent=(action 'updateEvent')}}
     </div>
   </div>
 </div>

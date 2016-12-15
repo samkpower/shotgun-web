@@ -2,12 +2,15 @@
   <img src='/assets/images/flow-logo.svg'>
 </div>
 
-<div class='top-bar__username'>
+<div class='top-bar__actions'>
   {{#if session.isAuthenticated}}
-    {{currentUser.email}}
-    <br>
-    <a {{action 'invalidateSession'}}>Logout</a>
+    <span class='top-bar__user-email'>{{currentUser.email}}</span>
+    <a class='s-btn s-btn--plain' {{action 'invalidateSession'}}>
+      <span class='s-btn__text'>Logout</span>
+    </a>
   {{else}}
-    Anonymous
+    {{#link-to login class='s-btn s-btn--plain'}}
+
+    {{/link-to}}
   {{/if}}
 </div>

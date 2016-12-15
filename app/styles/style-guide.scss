@@ -1,7 +1,8 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Lora');
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
 $font-primary: 'Lora', 'Calibri', 'Helvetica', 'Arial', sans-serif;
+$font-vanilla: 'Source Sans Pro', 'Calibri', 'Helvetica', 'Arial', sans-serif;
 
 // Colors
 $color-light-grey: #E3E7E8;
@@ -11,16 +12,22 @@ $color-dark-bluish-grey: #394244;
 
 $color-light-robin-egg: #E0FCFF;
 $color-medium-cobalt: rgb(75, 186, 247);
+$color-medium-cyan: #6EE2FF;
 
 $color-light-yellow: #fcf8e3;
 
 $color-light-red: #FE6A6A;
+
+// Transparent Colours
+
+$color-t-light-grey: rgba(244,244,244,0.62);
 
 // Global defaults
 body {
   font-family: $font-primary;
   margin: 0px;
   min-height: 100vh;
+  height: 100%;
 }
 
 a {
