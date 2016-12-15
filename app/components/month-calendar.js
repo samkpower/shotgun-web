@@ -29,14 +29,12 @@ export default Component.extend({
       header: false,
       events: this.get('events'),
       editable: true,
+      dayNamesShort: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       dayClick: (date) => {
         this.get('setActiveDate')(date.valueOf());
         this._displayActiveDay(date);
       },
       eventDrop: (event) => {
-        this.get('updateEvent')(event.id, { start: event.start, end: event.end });
-      },
-      eventResize: (event) => {
         this.get('updateEvent')(event.id, { start: event.start, end: event.end });
       }
     });

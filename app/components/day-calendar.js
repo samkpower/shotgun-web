@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import moment from 'moment';
 const { observer, computed, Component, inject, $ } = Ember;
 
 export default Component.extend({
