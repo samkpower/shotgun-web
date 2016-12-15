@@ -15,10 +15,23 @@
       color: transparentize($color-light-bluish-grey, 0.6);
     }
   }
+
+  .s-quote {
+    margin-left: 20px;
+  }
+
+  .s-quote__text {
+    color: transparentize($color-light-bluish-grey, 0.3);
+    font-size: 16px;
+  }
+
+  .s-quote__author {
+    font-size: 12px;
+  }
 }
 
 .top-bar__logo {
-  display: inline-block;
+  display: inline-flex;
 
   img {
     height: 50px;
