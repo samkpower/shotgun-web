@@ -1,3 +1,11 @@
+.home {
+  top-bar {
+    time-quote {
+      display: none;
+    }
+  }
+}
+
 .home__body {
   display: flex;
   justify-content: space-between;
