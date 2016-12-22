@@ -23,7 +23,7 @@ export default Component.extend({
       author: 'Ralph Marston'
     },
     {
-      text: 'Do... or do not! There is not try.',
+      text: 'Do... or do not! There is no try.',
       author: 'Yoda'
     }
   ],

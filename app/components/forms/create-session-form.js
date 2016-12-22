@@ -12,6 +12,13 @@ export default Component.extend({
         this.set('errorMessage', reason.error || reason);
         alert(reason.error || reason);
       });
+    },
+    loginWithGoogle() {
+      this.get('session').authenticate('authenticator:torii', 'google-oauth2')
+      .catch((reason) => {
+        this.set('errorMessage', reason.error || reason);
+        alert(reason.error || reason);
+      });
     }
   }
 });
