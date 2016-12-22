@@ -53,6 +53,7 @@
     "ember-simple-auth": "1.2.0-beta.1",
     "ember-utc-transform": "0.0.8",
     "ember-welcome-page": "^1.0.3",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "torii": "0.8.1"
   }
 }

@@ -29,6 +29,16 @@ module.exports = function(environment) {
     routeIfAlreadyAuthenticated: 'home'
   };
 
+  ENV.torii = {
+    providers: {
+      'google-oauth2': {
+        apiKey: process.env['GOOG_API_CLIENT_ID'],
+        redirectUri: 'http://localhost:4200/oauth2callback',
+        scopes: 'profile,email'
+      }
+    }
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
