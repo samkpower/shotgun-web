@@ -5,6 +5,7 @@ const { computed, on, inject: { service }, isEmpty, RSVP, observer } = Ember;
 export default SessionService.extend({
   store: service(),
   currentUserData: computed.oneWay('data.authenticated'),
+  currentUserToken: computed.oneWay('currentUserData.token'),
   currentUserFromStore: null,
 
   currentUser: computed('currentUserData', 'currentUserFromStore', function() {
@@ -26,6 +27,8 @@ export default SessionService.extend({
   }),
 
   loadCurrentUserFromStore() {
+    if (this.get('currentUserFromStore')) { return true; }
+
     return new RSVP.Promise((resolve, reject) => {
       let userId = this.get('currentUserData.id');
       if (!isEmpty(userId)) {

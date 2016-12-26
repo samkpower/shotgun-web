@@ -3,7 +3,7 @@ import Ember from 'ember';
 const { $ } = Ember;
 
 export default DeviseAuthenticator.extend({
-  invalidate: function(session) {
+  invalidate(session) {
     return $.ajax({
       url:  '/users/sign_out',
       type: 'DELETE',
