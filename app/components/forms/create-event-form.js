@@ -87,19 +87,19 @@ export default Component.extend({
   },
 
   _createEvent() {
-    this.get('store').findRecord('user', this.get('currentUser.id')).then((user) => {
-      let formEvent = this.get('store').createRecord('event', {
-        name: this.get('formData.name'),
-        start: this.get('formDataStart'),
-        end: this.get('formDataEnd'),
-        user: user
-      });
+    let user = this.get('store').peekRecord('user', this.get('currentUser.id'));
 
-      formEvent.save().then(() => {
-        this.get('closeModal')();
-      }).catch((formEvent) => {
-        this.set('errors', formEvent.errors);
-      });
+    let formEvent = this.get('store').createRecord('event', {
+      name: this.get('formData.name'),
+      start: this.get('formDataStart'),
+      end: this.get('formDataEnd'),
+      user: user
+    });
+
+    formEvent.save().then(() => {
+      this.get('closeModal')();
+    }).catch((formEvent) => {
+      this.set('errors', formEvent.errors);
     });
   },
 
