@@ -18,6 +18,7 @@
   }
 
   .s-quote {
+    display: none;
     margin-left: 20px;
   }
 
@@ -48,4 +49,8 @@
 .top-bar__user-email {
   color: transparent;
   transition: color 1s;
+}
+
+.login .top-bar .s-quote {
+  display: block;
 }
