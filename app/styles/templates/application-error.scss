@@ -1,7 +1,7 @@
-.home__loading {
+.application__error {
 }
 
-.home__loading__body {
+.application__error__body {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,23 +9,23 @@
   justify-content: center;
 }
 
-.home__loading__quote {
-  &.s-quote {
-    display: inline-flex;
-    flex-direction: column;
-    max-width: 50%;
-  }
+.application__error__quote {
+  width: 50%;
+  color: $color-light-red;
+  font-size: 60px;
+  margin-bottom: 60px;
+}
 
-  .s-quote__text {
-    color: transparentize($color-light-bluish-grey, 0.7);
-    font-size: 60px;
-  }
+.application__error__message {
+  width: 50%;
+  padding-right: 10%;
+  color: $color-light-bluish-grey;
+  font-size: 20px;
+  line-height: 1.5;
 
-  .s-quote__author {
+  a {
+    border-bottom: 2px dotted;
     color: $color-dark-bluish-grey;
-    font-size: 20px;
-    text-align: right;
-    margin-right: 15%;
   }
 }
 
