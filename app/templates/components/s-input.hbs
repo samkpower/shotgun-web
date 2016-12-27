@@ -16,6 +16,12 @@
     {{input value=value placeholder=placeholder class=inputClass type='password'}}
     <span class='s-input__errors'>{{errors}}</span>
   </label>
+{{else if typeIsTextarea}}
+    <label class='s-input-group'>
+      <span class='s-input-label'>{{label}}</span>
+      {{textarea value=value placeholder=placeholder class=inputClass}}
+      <span class='s-input__errors'>{{errors}}</span>
+    </label>
 {{else}}
   <label class='s-input-group'>
     <span class='s-input-label'>{{label}}</span>

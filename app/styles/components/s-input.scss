@@ -34,6 +34,29 @@
       border-bottom: 2px dotted $color-light-bluish-grey;
     }
   }
+
+  textarea {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    border-width: 0;
+    border-bottom: 2px dotted transparent;
+    resize: none;
+
+    font-family: $font-primary;
+    color: $color-light-bluish-grey;
+
+    transition: border-bottom 0.3s;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px dotted $color-light-bluish-grey;
+    }
+  }
 }
 
 .s-input-label {

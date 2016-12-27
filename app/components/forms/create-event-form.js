@@ -44,7 +44,7 @@ export default Component.extend({
 
   // private methods
   _setAutofocus() {
-    this.$('.event-form__name input').focus();
+    this.$('.event-form__name textarea').focus();
   },
 
   _runClientValidations() {
