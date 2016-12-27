@@ -1,6 +1,11 @@
-<div class='month-calendar__navigation'>
+<!-- <div class='month-calendar__navigation'>
   <a class='month-calendar__navigation-month' {{action 'goToMonth' prevMonth}}>{{moment-format prevMonth "MMMM"}}</a>
   <span class='month-calendar__navigation-month month-calendar__navigation-month--active'>{{moment-format activeMonth "MMMM"}}</span>
   <a class='month-calendar__navigation-month' {{action 'goToMonth' nextMonth}}>{{moment-format nextMonth "MMMM"}}</a>
+</div> -->
+
+<div class='month-calendar__navigation'>
+  {{navigation/month-bar activeDate=activeDate}}
 </div>
+
 <div class='month-calendar__fc'></div>

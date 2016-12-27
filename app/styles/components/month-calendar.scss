@@ -1,6 +1,6 @@
-month-calendar {
+.month-calendar__fc {
   display: block;
-  height: 90%;
+  height: 70%;
 
   // FullCalendar overwrites
   .fc-day-grid-event {
@@ -89,12 +89,10 @@ month-calendar {
 
 // Component styles
 .month-calendar__navigation-month {
+  margin: 0 20px 0 20px;
   color: $color-light-grey;
   font-size: 30px;
   font-weight: 700;
-  padding: 20px 0 30px 0;
-  text-align: center;
-  width: 100%;
   font-family: $font-vanilla;
   display: inline-block;
   transition: color 0.5s;
@@ -106,9 +104,41 @@ month-calendar {
   &.month-calendar__navigation-month--active {
     color: $color-light-bluish-grey;
   }
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  &:last-child {
+    margin-right: 0px;
+  }
 }
 
 .month-calendar__navigation {
   display: flex;
   align-items: center;
+  overflow-x: scroll;
+  padding: 20px 0 20px 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.month-calendar__navigation-year {
+  border-left: 3px solid $color-light-grey;
+  padding: 0 10px;
+}
+
+.month-calendar__navigation-year__months {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month-calendar__navigation-year__year {
+  font-family: $font-vanilla;
+  color: $color-light-bluish-grey;
+  font-size: 20px;
+  font-weight: 500;
 }
