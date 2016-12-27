@@ -12,7 +12,14 @@ export default Component.extend({
 
   // computed properties
   monthCalendarElem: computed(function() {
-    return this.$();
+    return this.$('.month-calendar__fc');
+  }),
+  activeMonth: computed.alias('activeDate'),
+  nextMonth: computed('activeMonth', function() {
+    return this.get('activeMonth').clone().add(1, 'months');
+  }),
+  prevMonth: computed('activeMonth', function() {
+    return this.get('activeMonth').clone().subtract(1, 'months');
   }),
 
   // observers
@@ -55,5 +62,13 @@ export default Component.extend({
     this._super(...arguments);
     this._renderCalendarView();
     this._displayActiveDay(this.get('activeDate').valueOf());
+  },
+
+  actions: {
+    goToMonth(moment) {
+      this.get('monthCalendarElem').fullCalendar('gotoDate', moment.startOf('month'));
+      this.get('setActiveDate')(moment.startOf('month'));
+      this._displayActiveDay(moment.startOf('month'));
+    }
   }
 });

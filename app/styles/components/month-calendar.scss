@@ -86,3 +86,29 @@ month-calendar {
     text-shadow: 0px 0px 1px transparentize(#63BED4, 0.5);
   }
 }
+
+// Component styles
+.month-calendar__navigation-month {
+  color: $color-light-grey;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px 0 30px 0;
+  text-align: center;
+  width: 100%;
+  font-family: $font-vanilla;
+  display: inline-block;
+  transition: color 0.5s;
+
+  &:hover {
+    color: lighten($color-light-bluish-grey, 20%);
+  }
+
+  &.month-calendar__navigation-month--active {
+    color: $color-light-bluish-grey;
+  }
+}
+
+.month-calendar__navigation {
+  display: flex;
+  align-items: center;
+}
