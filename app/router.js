@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('users');
   this.route('home', { path: '/' });
   this.route('login', { path: '/login' });
+  this.route('logout', { path: '/logout' });
 
   if (config.environment === 'development') {
     this.route('playground', { path: '/playground' });
