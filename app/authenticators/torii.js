@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import Torii from 'ember-simple-auth/authenticators/torii';
+import ENV from '../config/environment';
 
-const { inject: { service }, $, merge, RSVP } = Ember;
+const { inject: { service }, $, RSVP } = Ember;
 
 export default Torii.extend({
   torii: service('torii'),
@@ -13,7 +14,7 @@ export default Torii.extend({
       return $.ajax({
         type: "POST",
         // TODO: code as http param as temporary fix for issues with Omniauth middleware
-        url: `http://localhost:3000/users/auth/google_oauth2/callback?code=${providerData.authorizationCode}`,
+        url: `${ENV.APP.apiHost}/users/auth/google_oauth2/callback?code=${providerData.authorizationCode}`,
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ code: providerData.authorizationCode }),
         dataType: "json",

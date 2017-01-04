@@ -15,5 +15,5 @@ export default DS.JSONAPIAdapter.extend({
       'requestor-email': this.get('currentUser.email') || ''
     };
   }),
-  host: ENV.APP.host
+  host: ENV.APP.apiHost
 });

@@ -45,6 +45,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.host = 'http://localhost:4200';
+    ENV.APP.apiHost = 'http://localhost:3000';
   }
 
   if (environment === 'test') {
@@ -59,7 +61,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.host = 'https://skp-shotgun-api.herokuapp.com';
+    ENV.APP.host = 'http://shotgun-web.s3-website-us-east-1.amazonaws.com';
+    ENV.APP.apiHost = 'https://skp-shotgun-api.herokuapp.com';
   }
 
   return ENV;
