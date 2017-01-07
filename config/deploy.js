@@ -9,14 +9,14 @@ module.exports = function(deployTarget) {
     's3-index': {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
-      bucket: "shotgun-web",
+      bucket: "find-flow.com",
       region: "us-east-1",
       allowOverwrite: true
     },
     's3': {
       accessKeyId: process.env['AWS_ACCESS_KEY'],
       secretAccessKey: process.env['AWS_SECRET_KEY'],
-      bucket: "shotgun-web",
+      bucket: "find-flow.com",
       region: "us-east-1"
     }
   };
