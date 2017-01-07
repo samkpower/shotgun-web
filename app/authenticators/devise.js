@@ -4,6 +4,7 @@ import ENV from '../config/environment';
 const { $ } = Ember;
 
 export default DeviseAuthenticator.extend({
+  serverTokenEndpoint: `${ENV.APP.apiHost}/users/sign_in`,
   invalidate(session) {
     return $.ajax({
       url:  `${ENV.APP.apiHost}/users/sign_out`,
