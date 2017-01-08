@@ -29,16 +29,6 @@ module.exports = function(environment) {
     routeIfAlreadyAuthenticated: 'home'
   };
 
-  ENV.torii = {
-    providers: {
-      'google-oauth2': {
-        apiKey: process.env['GOOG_API_CLIENT_ID'],
-        redirectUri: 'http://localhost:4200/oauth2callback',
-        scopes: 'profile,email'
-      }
-    }
-  };
-
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -61,9 +51,19 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.host = 'http://shotgun-web.s3-website-us-east-1.amazonaws.com';
+    ENV.APP.host = 'http://find-flow.com';
     ENV.APP.apiHost = 'https://skp-shotgun-api.herokuapp.com';
   }
+
+  ENV.torii = {
+    providers: {
+      'google-oauth2': {
+        apiKey: process.env['GOOG_API_CLIENT_ID'],
+        redirectUri: `${ENV.APP.host}/oauth2callback`,
+        scopes: 'profile,email'
+      }
+    }
+  };
 
   return ENV;
 };
