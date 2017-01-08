@@ -1,11 +1,21 @@
 <div class='login__body'>
-  <div class='login__sign-up-form'>
-    <h2 class='login__h2'>Sign up here.</h2>
-    {{forms/create-user-form}}
+  <div class='login__form-container'>
+    <div class='login__sign-up-form'>
+      <div class='login__h2-container'>
+        <h2 class='login__h2'>I'm new.</h2>
+      </div>
+      {{forms/create-user-form}}
+    </div>
   </div>
 
-  <div class='login__log-in-form'>
-    <h2 class='login__h2'>Already a member?<br>Log in here.</h2>
-    {{forms/create-session-form}}
+  <div class='login__border'></div>
+
+  <div class='login__form-container'>
+    <div class='login__log-in-form'>
+      <div class='login__h2-container'>
+        <h2 class='login__h2'>I'm back.</h2>
+      </div>
+      {{forms/create-session-form}}
+    </div>
   </div>
 </div>

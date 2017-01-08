@@ -25,4 +25,55 @@
   &.s-btn--plain {
     border: 0px;
   }
+
+  &.s-btn--google-icon {
+    font-family: $font-vanilla;
+    background: url(images/gcon.png);
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: 5px;
+
+    .s-btn__text {
+      margin-left: 20%;
+    }
+  }
+
+  &.s-btn--flow-icon {
+    font-family: $font-vanilla;
+    background: url(images/flow-logo.svg);
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: 5px;
+
+    .s-btn__text {
+      margin-left: 20%;
+    }
+  }
+
+  &.s-btn--x-icon {
+    width: 20px;
+    height: 20px;
+    background:
+     linear-gradient(to top left,
+         rgba(0,0,0,0) 0%,
+         rgba(0,0,0,0) calc(50% - 0.8px),
+         $color-light-bluish-grey 50%,
+         rgba(0,0,0,0) calc(50% + 0.8px),
+         rgba(0,0,0,0) 100%),
+     linear-gradient(to top right,
+         rgba(0,0,0,0) 0%,
+         rgba(0,0,0,0) calc(50% - 0.8px),
+         $color-light-bluish-grey 50%,
+         rgba(0,0,0,0) calc(50% + 0.8px),
+         rgba(0,0,0,0) 100%);
+     background-size: 100% 100%;
+     background-position: center;
+     background-repeat: no-repeat;
+     box-shadow: inset 0px 0px 0px 3px white;
+     transition: 0.3s box-shadow;
+
+     &:hover {
+       box-shadow: inset 0px 0px 0px 0px white;
+     }
+  }
 }
