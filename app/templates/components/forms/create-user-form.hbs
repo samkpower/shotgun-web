@@ -1,27 +1,35 @@
-<form>
-  {{s-input value=newUser.firstName
-    label='Name:'
-    placeholder='What can I call you?'
-    errors=errors.name}}
+{{#if showEmailForm}}
+  <form>
+    {{s-input value=newUser.firstName
+      label='Name:'
+      placeholder='What can I call you?'
+      errors=errors.name}}
 
-  {{s-input value=newUser.email
-    label='Email:'
-    errors=errors.email
-    class='s-input--show-underline'}}
+    {{s-input value=newUser.email
+      label='Email:'
+      errors=errors.email
+      class='s-input--show-underline'}}
 
-  {{s-input value=newUser.password
-    label='Password:'
-    errors=errors.password
-    class='s-input--show-underline'
-    typeIsPassword=true}}
+    {{s-input value=newUser.password
+      label='Password:'
+      errors=errors.password
+      class='s-input--show-underline'
+      typeIsPassword=true}}
 
-  <button class='s-btn' {{action 'submitForm'}}>
-    <span class='s-btn__text'>sign up</span>
+    <button class='s-btn u-margin-bottom-20' {{action 'submitForm'}}>
+      <span class='s-btn__text'>sign up</span>
+    </button>
+  </form>
+
+  <div class='u-text-align-center u-margin-bottom-20'>
+    <button class='s-btn s-btn--x-icon' {{action 'toggleShowEmailForm'}}></button>
+  </div>
+{{else}}
+  <button class='s-btn s-btn--google-icon u-margin-bottom-20' {{action 'signUpWithGoogle'}}>
+    <span class='s-btn__text'>google sign up</span>
   </button>
-</form>
 
-<hr>
-
-<button class='s-btn' {{action 'signUpWithGoogle'}}>
-  <span class='s-btn__text'>google signup</span>
-</button>
+  <button class='s-btn s-btn--flow-icon u-margin-bottom-20' {{action 'toggleShowEmailForm'}}>
+    <span class='s-btn__text'>email sign up</span>
+  </button>
+{{/if}}

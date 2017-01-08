@@ -10,6 +10,7 @@ export default Component.extend({
   newUser: {},
   errors: {},
   hasErrors: computed.equal('errors', {}),
+  shouldShowEmailForm: false,
 
   // private methods
   _createUser() {
@@ -50,12 +51,17 @@ export default Component.extend({
     submitForm() {
       this._createUser();
     },
+
     signUpWithGoogle() {
       this.get('session').authenticate('authenticator:torii', 'google-oauth2')
       .catch((reason) => {
         this.set('errorMessage', reason.error || reason);
         alert(reason.error || reason);
       });
+    },
+
+    toggleShowEmailForm() {
+      this.toggleProperty('showEmailForm');
     }
   }
 });
