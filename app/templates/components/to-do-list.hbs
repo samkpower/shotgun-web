@@ -1,0 +1,10 @@
+<div class='to-do-list'>
+  <h1 class='to-do-list__title'>To Do</h1>
+  {{#each toDos as |toDo|}}
+    <div class='to-do'>
+      <span class='to-do__checkbox'></span>
+      <span class='to-do__name'>{{toDo.name}}</span>
+    </div>
+  {{/each}}
+  {{forms/create-to-do-form}}
+</div>
