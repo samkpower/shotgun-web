@@ -22,5 +22,7 @@
   <button class='s-btn' {{action 'submitForm'}}>
     <span class='s-btn__text'>save</span>
   </button>
-  <a class='event-form__delete' {{action 'deleteEvent'}}>delete event</a>
+  {{#unless eventIsNew}}
+    <a class='event-form__delete' {{action 'deleteEvent'}}>delete event</a>
+  {{/unless}}
 </form>
