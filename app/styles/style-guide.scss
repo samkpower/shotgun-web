@@ -23,6 +23,10 @@ $color-light-red: #FE6A6A;
 $color-t-light-grey: rgba(244,244,244,0.62);
 
 // Global defaults
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: $font-primary;
   margin: 0px;
@@ -35,8 +39,8 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
 }
 
 // Font classes

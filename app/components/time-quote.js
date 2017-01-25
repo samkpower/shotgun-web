@@ -25,6 +25,14 @@ export default Component.extend({
     {
       text: 'Do... or do not! There is no try.',
       author: 'Yoda'
+    },
+    {
+      text: 'Life is a dirty game. You gotta play dirty to win.',
+      author: 'Harris'
+    },
+    {
+      text: 'Four for you, Glen Coco. You GO, Glen Coco!',
+      author: 'Santa Damien'
     }
   ],
 

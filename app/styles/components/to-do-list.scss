@@ -1,0 +1,86 @@
+.to-do-list__title {
+  font-size: 48px;
+  color: $color-dark-bluish-grey;
+  margin-bottom: 0.33em;
+}
+
+.to-do {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.to-do__name {
+  margin-left: 0.33em;
+  color: $color-light-bluish-grey;
+  font-size: 36px;
+}
+
+.to-do__checkbox {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 3px solid $color-light-grey;
+  font-size: 36px;
+  cursor: pointer;
+  box-shadow: inset 0px 0px 0px 20px white;
+  background:
+   linear-gradient(to top left,
+       rgba(0,0,0,0) 0%,
+       rgba(0,0,0,0) calc(50% - 0.8px),
+       $color-light-bluish-grey 50%,
+       rgba(0,0,0,0) calc(50% + 0.8px),
+       rgba(0,0,0,0) 100%),
+   linear-gradient(to top right,
+       rgba(0,0,0,0) 0%,
+       rgba(0,0,0,0) calc(50% - 0.8px),
+       $color-light-bluish-grey 50%,
+       rgba(0,0,0,0) calc(50% + 0.8px),
+       rgba(0,0,0,0) 100%);
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    box-shadow: inset 0px 0px 0px 3px white;
+  }
+
+  &.to-do__checkbox--checked {
+    background:
+     linear-gradient(to top left,
+         rgba(0,0,0,0) 0%,
+         rgba(0,0,0,0) calc(50% - 0.8px),
+         $color-light-bluish-grey 50%,
+         rgba(0,0,0,0) calc(50% + 0.8px),
+         rgba(0,0,0,0) 100%),
+     linear-gradient(to top right,
+         rgba(0,0,0,0) 0%,
+         rgba(0,0,0,0) calc(50% - 0.8px),
+         $color-light-bluish-grey 50%,
+         rgba(0,0,0,0) calc(50% + 0.8px),
+         rgba(0,0,0,0) 100%);
+     background-size: 100% 100%;
+     background-position: center;
+     background-repeat: no-repeat;
+     box-shadow: inset 0px 0px 0px 3px white;
+     transition: 0.3s box-shadow;
+  }
+}
+
+.to-do-form {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.to-do-form__name-input {
+  font-size: 36px;
+  margin-left: 0.33em;
+
+  .s-input-group input {
+    font-size: 36px;
+    border-color: $color-light-grey;
+  }
+
+  .s-input__errors {
+    position: absolute;
+  }
+}

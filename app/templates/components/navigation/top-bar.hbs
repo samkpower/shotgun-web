@@ -5,7 +5,6 @@
 
 <div class='top-bar__actions'>
   {{#if session.isAuthenticated}}
-    <span class='top-bar__user-email'>{{currentUser.email}}</span>
     <a class='s-btn s-btn--plain' {{action 'invalidateSession'}}>
       <span class='s-btn__text'>Logout</span>
     </a>

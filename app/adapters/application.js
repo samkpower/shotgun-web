@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import DS from 'ember-data';
 import ENV from '../config/environment';
-const { computed, inject: { service } } = Ember;
+const { computed, inject: { service }, String: { underscore }, Inflector} = Ember;
 
 export default DS.JSONAPIAdapter.extend({
   session: service('session'),
@@ -15,5 +15,9 @@ export default DS.JSONAPIAdapter.extend({
       'requestor-email': this.get('currentUser.email') || ''
     };
   }),
-  host: ENV.APP.apiHost
+  host: ENV.APP.apiHost,
+  pathForType(type) {
+    let inflector = new Inflector(Inflector.defaultRules);
+    return underscore(inflector.pluralize(type));
+  }
 });
