@@ -3,5 +3,6 @@ const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
   name: attr('string'),
-  user: belongsTo('user')
+  user: belongsTo('user'),
+  complete: attr('boolean')
 });
