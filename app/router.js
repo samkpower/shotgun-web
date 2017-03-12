@@ -7,15 +7,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('users');
-  this.route('to-dos');
-
   this.route('home', { path: '/' });
-  this.route('login', { path: '/login' });
-  this.route('logout', { path: '/logout' });
+  this.route('login');
+  this.route('logout');
+
+  this.route('day', { path: 'day/:date' });
+
+  // playground routes
 
   if (config.environment === 'development') {
-    this.route('playground', { path: '/playground' });
+    this.route('users');
+    this.route('to-dos');
+    this.route('playground');
   }
 });
 

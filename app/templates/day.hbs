@@ -1,0 +1,15 @@
+<div class='day__body'>
+  <div class='day__day-calendar-container'>
+    <div class='day__day-calendar'>
+      {{day-calendar
+        events=model.events
+        activeDate=activeDate}}
+    </div>
+  </div>
+  <div class='day__scratchpad-container'>
+    <span class='day__active-date'>{{moment-format activeDate "dddd, MMMM Do"}}</span>
+    <div class='day__to-do-list'>
+      {{to-do-list model=model.toDos}}
+    </div>
+  </div>
+</div>
