@@ -59,7 +59,7 @@ module.exports = function(environment) {
     providers: {
       'google-oauth2': {
         apiKey: process.env['FLOW_GOOG_API_CLIENT_ID'],
-        redirectUri: `${ENV.APP.host}/oauth2callback`,
+        redirectUri: `${ENV.APP.host}/login`,
         scopes: 'profile,email'
       }
     }

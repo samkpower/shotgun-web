@@ -13,12 +13,11 @@ export default Torii.extend({
     return this._super(options).then((providerData) => {
       return $.ajax({
         type: "POST",
-        // TODO: code as http param as temporary fix for issues with Omniauth middleware
         url: `${ENV.APP.apiHost}/users/auth/google_oauth2/callback?code=${providerData.authorizationCode}`,
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({ code: providerData.authorizationCode }),
         dataType: "json",
-        headers: { 'X-Requested-With': 'XMLHttpRequest' }
+        headers: { 'Accept': 'application/json' }
       });
     }).then((internalData) => {
       // TODO: fix this workaround used to invalidate session
