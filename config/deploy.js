@@ -7,15 +7,15 @@ module.exports = function(deployTarget) {
       type: 'git-commit'
     },
     's3-index': {
-      accessKeyId: process.env['AWS_ACCESS_KEY'],
-      secretAccessKey: process.env['AWS_SECRET_KEY'],
+      accessKeyId: process.env['FLOW_AWS_ACCESS_KEY'],
+      secretAccessKey: process.env['FLOW_AWS_SECRET_KEY'],
       bucket: "find-flow.com",
       region: "us-east-1",
       allowOverwrite: true
     },
     's3': {
-      accessKeyId: process.env['AWS_ACCESS_KEY'],
-      secretAccessKey: process.env['AWS_SECRET_KEY'],
+      accessKeyId: process.env['FLOW_AWS_ACCESS_KEY'],
+      secretAccessKey: process.env['FLOW_AWS_SECRET_KEY'],
       bucket: "find-flow.com",
       region: "us-east-1"
     }

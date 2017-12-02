@@ -58,8 +58,8 @@ module.exports = function(environment) {
   ENV.torii = {
     providers: {
       'google-oauth2': {
-        apiKey: process.env['GOOG_API_CLIENT_ID'],
-        redirectUri: `${ENV.APP.host}/oauth2callback`,
+        apiKey: process.env['FLOW_GOOG_API_CLIENT_ID'],
+        redirectUri: `${ENV.APP.host}/login`,
         scopes: 'profile,email'
       }
     }
