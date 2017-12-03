@@ -1,0 +1,13 @@
+week-agenda {
+  display: block;
+  height: 100%;
+  min-height: 100vh;
+
+  .fc-day.fc-today {
+    background: white;
+  }
+
+  .week-agenda__active-day.fc-day {
+    background: #fcf8e3;
+  }
+}

@@ -17,6 +17,7 @@
 @import 'components/day-calendar';
 @import 'components/to-do-list';
 @import 'components/to-do';
+@import 'components/week-agenda';
 @import 'components/forms/create-event-form';
 @import 'components/modals/create-event-modal';
 @import 'components/navigation/top-bar';
@@ -26,6 +27,7 @@
 @import 'templates/application-loading';
 @import 'templates/home';
 @import 'templates/login';
+@import 'templates/agenda';
 
 .application__top-bar {
   min-height: 110px;

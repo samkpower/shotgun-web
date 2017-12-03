@@ -14,6 +14,8 @@ Router.map(function() {
   this.route('login', { path: '/login' });
   this.route('logout', { path: '/logout' });
 
+  this.route('agenda', { path: '/agenda' });
+
   if (config.environment === 'development') {
     this.route('playground', { path: '/playground' });
   }

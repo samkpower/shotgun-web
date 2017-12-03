@@ -1,0 +1,13 @@
+<div class='agenda__body'>
+  <div class='agenda__week-agenda'>
+    {{week-agenda
+      events=events
+      activeDate=activeDate
+      setActiveDate=(action 'setActiveDate')
+      updateEvent=(action 'updateEvent')}}
+  </div>
+</div>
+
+{{modals/create-event-modal
+  showModal=showCreateEventModal
+  formEvent=formEvent}}
